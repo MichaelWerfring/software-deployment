@@ -3,6 +3,8 @@
 
 ``Course:`` Software Deployment - ILV
 
+``Repo:`` https://github.com/MichaelWerfring/software-deployment/tree/main/lab3
+
 Both of the folders ``\part-1`` and ``\part-2``
  are built to host wordpress and mysql in separate containers. 
 Before starting/building them make sure the docker daemon is running by starting Docker Desktop.
