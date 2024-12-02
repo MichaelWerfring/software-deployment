@@ -37,10 +37,13 @@ The Wordpress Website will be accessible from port ``80`` and mysql database on 
 The containers are both in the ``wpsite`` network, and are configured in a way that they can communicate propperly.
 
 In the current setup the mysql database is configured like this: 
-``database``: wordpress
-``user``: user
-```password``: password
 
-It can be configured in the wordpress UI like this:
+``database``: wordpress
+
+``user``: user
+
+``password``: password
+
+It can be configured in the wordpress UI as well:
 
 ![alt text](img/db_config.png)
