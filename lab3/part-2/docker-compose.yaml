@@ -1,0 +1,43 @@
+services:
+  mysql:
+    build:
+      context: ./mysql
+    container_name: mysql_container
+    networks:
+      - wpsite
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+    ports:
+      - "3306:3306"
+    volumes: 
+      - mysql_volume:/var/lib/mysql
+
+  wordpress:
+    depends_on:
+      - mysql
+    build:
+      context: ./wordpress
+    container_name: wordpress_container
+    networks:
+      - wpsite
+    restart: always
+    environment:
+         - WORDPRESS_DB_HOST=mysql:3306
+         - WORDPRESS_DB_USER=user
+         - WORDPRESS_DB_PASSWORD=password
+         - WORDPRESS_DB_NAME=wordpress
+    ports:
+      - "80:80"
+    volumes:
+      - wordpress_volume:/var/www/html
+
+networks:
+  wpsite:
+
+volumes:
+  mysql_volume: {}
+  wordpress_volume: {}
